@@ -60,12 +60,11 @@ app.post('/tasks', function(req, res){
 );
 
 // update
-app.put('/tasks/:id', function(req, res){
+app.put('/tasks/:task_id', function(req, res){
   var Task= mongoose.model('Task');
   console.log("task PUT called");
-  var id = req.params.id;
-  Task.findByIdAndUpdate(id, req.body);
-
+  var task_id = req.params.task_id;
+  Task.findOneAndUpdate(task_id, req.body);
 });
 
 // delete
