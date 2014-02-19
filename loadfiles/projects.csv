@@ -1,0 +1,4 @@
+project_id,name,description
+1,tim,a great time tracker
+
+mongoimport -d tim2 -c projects --headerline --type csv users.csv

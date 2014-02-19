@@ -1,0 +1,4 @@
+task_id,task,description,time
+1,build tim,use github,16
+
+mongoimport -d tim2 -c tasks --headerline --type csv users.csv
