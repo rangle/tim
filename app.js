@@ -30,6 +30,13 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+app.get('/tasks', function(req, res){
+  var Task= mongoose.model('Task');
+  Task.find({}, function(err, data){
+      res.send(data);      
+  });
+});
+
 app.get('/tasks/:id', function(req, res){
   var Task= mongoose.model('Task');
 
@@ -52,11 +59,27 @@ app.post('/tasks', function(req, res){
 }
 );
 
-
-app.get('/tasks', function(req, res){
+// update
+app.put('/tasks/:id', function(req, res){
   var Task= mongoose.model('Task');
-  Task.find({}, function(err, data){
-      res.send(data);      
+  console.log("task PUT called");
+  var id = req.params.id;
+  Task.findByIdAndUpdate(id, req.body);
+
+});
+
+// delete
+app.del('/tasks/:id', function(req, res){
+  var Task= mongoose.model('Task');
+  var id = req.params.id;
+  console.log(req.params);
+  
+  Task.findOneAndRemove({task_id: id}, function(err){
+    if(err){
+      console.log(err);  
+    }else{
+      console.log("findAndRemove completed");
+    }
   });
 });
 
