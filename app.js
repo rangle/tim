@@ -45,13 +45,20 @@ app.get('/tasks/:id', function(req, res){
 }
 );
 
+app.post('/tasks', function(req, res){
+  var Task= mongoose.model('Task');
+  var task= new Task(req.body);
+  task.save();
+}
+);
+
+
 app.get('/tasks', function(req, res){
   var Task= mongoose.model('Task');
   Task.find({}, function(err, data){
       res.send(data);      
   });
 });
-
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
