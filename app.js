@@ -6,6 +6,9 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
+require('./lib/db');
+var mongoose= require('mongoose');
+var logger = require('winston');
 
 var app = express();
 
@@ -27,10 +30,28 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/tasks', function(req, res){
-  res.send({ title: 'Task#1' });
+app.get('/tasks/:id', function(req, res){
+  var Task= mongoose.model('Task');
+
+  var id = req.params.id;
+  Task.findOne({'task_id': id}, function(err, data){
+    if(err){
+      logger.error(module + " get err=" + err);
+      res.send(err);
+    }else{
+      res.send(data);      
+    }
+  });
 }
 );
+
+app.get('/tasks', function(req, res){
+  var Task= mongoose.model('Task');
+  Task.find({}, function(err, data){
+      res.send(data);      
+  });
+});
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
