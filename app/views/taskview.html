@@ -1,11 +1,11 @@
 <ng-include src="'/views/header.html'"></ng-include>
 
 <h2>Task</h2>
-
-<form>
+<div>
   <!-- "task_id": "33", "task": "update curl docs", "description":  -->
   Task id: {{task.task_id}}<br>
   Task: {{task.task}}<br>
   Description: {{task.description}}<br>
   Time: {{task.time}}<br>
-</form>
+</div>
+<a class="btn btn-small btn-primary" href="/#/tasks/{{task.task_id}}/edit">Edit</a>

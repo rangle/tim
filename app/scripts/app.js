@@ -39,10 +39,21 @@ angular.module('timApp', [
         templateUrl: 'views/projects.html',
         controller: 'ProjectsCtrl'
       })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
   })
-  .run(function($rootScope){
-    $rootScope.title = { title: "Don't use globals!" }
+  .run(function($rootScope,$location){
+    $rootScope.alert = { message: null };
+    $rootScope.user = { username: null };
+
+    $rootScope.$on("$locationChangeStart", function(event){
+      $rootScope.alert = { message: null };
+      console.log("$locationChangeStart called");
+      //event.preventDefault();
+    });
   });
