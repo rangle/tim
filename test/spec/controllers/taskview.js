@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: TaskviewCtrl', function () {
+xdescribe('Controller: TaskviewCtrl', function () {
 
   // load the controller's module
   beforeEach(module('timApp'));

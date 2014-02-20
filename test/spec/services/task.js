@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Service: Task', function () {
+xdescribe('Service: Task', function () {
 
   // load the service's module
   beforeEach(module('timApp'));

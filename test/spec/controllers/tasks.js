@@ -1,22 +1,11 @@
 'use strict';
 
-describe('Controller: TasksCtrl', function () {
+var expect = chai.expect;
+describe('tasks', function () {
 
-  // load the controller's module
-  beforeEach(module('timApp'));
-
-  var TasksCtrl,
-    scope;
-
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    TasksCtrl = $controller('TasksCtrl', {
-      $scope: scope
-    });
-  }));
-
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  it('2+2 should equal 4', function() {
+    var x = 2+2;
+    expect(x).to.equal(4);
   });
+
 });
