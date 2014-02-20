@@ -1,9 +1,9 @@
+<ng-include src="'/views/header.html'"></ng-include>
+
 <h2>Tasks</h2>
-Title: {{title.title}}
 <ul>
   <li ng-repeat="task in tasks">
     <a href="/#/tasks/{{task.task_id}}">{{task.task}}</a>
-    <input ng-model="task.task">
   </li>
 </ul>
 <button ng-click="save()">Save</button>
