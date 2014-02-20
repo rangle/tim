@@ -1,0 +1,5 @@
+{{ task.title }}
+<span ng-if="task.status==='done'">√</span>
+<button ng-if="task.status!=='done'" ng-click='finishTask(task)'>
+ Done
+</button>
