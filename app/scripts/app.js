@@ -23,9 +23,9 @@ angular.module('timApp', [
         templateUrl: 'views/taskview.html',
         controller: 'TasksViewCtrl'
       })
-      .when('/tasks', {
-        templateUrl: 'views/tasks.html',
-        controller: 'TasksCtrl'
+      .when('/promises', {
+        templateUrl: 'views/promises.html',
+        controller: 'TasksPromiseCtrl'
       })
       .when('/users', {
         templateUrl: 'views/users.html',

@@ -1,0 +1,10 @@
+<div class="row marketing">
+  <h4>My tasks</h4>
+  <ul ng-repeat="task in tasks">
+    <li>
+      {{ task.title }}
+      <span ng-if="task.status==='done'">√</span>
+      <button ng-if="task.status!=='done'" ng-click='finishTask(task)'>Done</button>
+    </li>
+  </ul>
+</div>
