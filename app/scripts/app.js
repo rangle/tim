@@ -15,6 +15,10 @@ angular.module('timApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/tasks/new', {
+        templateUrl: 'views/taskedit.html',
+        controller: 'TasksNewCtrl'
+      })
       .when('/tasks/:task_id/edit', {
         templateUrl: 'views/taskedit.html',
         controller: 'TasksEditCtrl'
