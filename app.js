@@ -22,7 +22,7 @@ app.use(express.methodOverride());
 app.use(express.cookieParser('your secret here'));
 app.use(express.session());
 
-app.use(express.basicAuth('testUser', 'testPass'));
+// app.use(express.basicAuth('testUser', 'testPass'));
 
 app.use(express.static(path.join(__dirname, 'app')));
 app.use(app.router);
