@@ -1,6 +1,7 @@
 <div class="row marketing">
   <h4>My tasks</h4>
   <ul ng-repeat="task in tasks">
-    <li tim-task>foo</li>
+    <li> {{ $index }} <span tim-task task-number="{{ $index }}"/li>
   </ul>
+  ** <span tim-task task-number="1" show-button="true"/>
 </div>

@@ -214,3 +214,80 @@ tasks.getMyTasks()
         });
     }
   });
+
+//
+
+.directive('timTask', function() {
+  return {
+    replace: false,
+    scope: true,
+    template: '{{ tasks.title }}',
+  };
+});
+
+//
+
+.directive('timTask', function() {
+  return {
+    replace: false,
+    scope: true,
+    templateUrl: '/views/taskDirective.html',
+  };
+});
+
+// Transclusion
+
+.directive('timTask', function() {
+  return {
+    replace: false,
+    scope: true,
+    transclude: true,
+    templateUrl: '/views/taskDirective.html',
+  };
+});
+
+<span ng-transclude/>
+
+//
+
+angular.module('timApp')
+
+.directive('timTask', function(tasks) {
+  return {
+    replace: false,
+    scope: {},
+    templateUrl: '/views/taskDirective.html',
+    link: function (scope, iElement, iAttrs) {
+      tasks.getMyTasks()
+        .then(function(myTasks) {
+          var taskNumber = parseInt(iAttrs.taskNumber);
+          scope.task = myTasks.data[taskNumber];
+        })
+        .then(null, function(error) {
+          console.error(error);
+        })
+    }
+  };
+});
+
+.directive('timTask', function(tasks) {
+  return {
+    replace: false,
+    scope: {},
+    templateUrl: '/views/taskDirective.html',
+    link: function (scope, iElement, iAttrs) {
+      tasks.getMyTasks()
+        .then(function(myTasks) {
+          var taskNumber = parseInt(iAttrs.taskNumber);
+          scope.task = myTasks.data[taskNumber];
+          scope.showButton = iAttrs.showButton;
+        })
+        .then(null, function(error) {
+          console.error(error);
+        })
+    }
+  };
+});
+
+//
+
