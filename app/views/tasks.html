@@ -3,10 +3,9 @@
 <h2>Tasks</h2>
 <ul>
   <li ng-repeat="task in tasks">
-    <a href="/#/tasks/{{task.task_id}}">{{task.task}}</a>
+    <a href="/#/tasks/{{task.task_id}}">{{task.task}}</a> <a href="/#/tasks/{{task.task_id}}/edit">[edit]</a>
   </li>
 </ul>
-<button ng-click="save()">Save</button>
 
 <div class="well">
     JSON: {{tasks | json}}

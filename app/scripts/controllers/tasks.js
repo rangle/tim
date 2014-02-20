@@ -9,4 +9,10 @@ angular.module('timApp')
     $scope.save = function() {
       console.log("task save goes here");
     };
+  })
+  .controller('TasksViewCtrl', function ($scope, $routeParams, Task) {
+    $scope.task = Task.get({task_id: $routeParams.task_id});
+  })
+  .controller('TasksEditCtrl', function ($scope, $routeParams, Task) {
+    $scope.task = Task.get({task_id: $routeParams.task_id});
   });

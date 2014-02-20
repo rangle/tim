@@ -15,13 +15,13 @@ angular.module('timApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/tasks/:id/edit', {
+      .when('/tasks/:task_id/edit', {
         templateUrl: 'views/taskedit.html',
-        controller: 'TasksCtrl'
+        controller: 'TasksEditCtrl'
       })
-      .when('/tasks/:id', {
+      .when('/tasks/:task_id', {
         templateUrl: 'views/taskview.html',
-        controller: 'TasksCtrl'
+        controller: 'TasksViewCtrl'
       })
       .when('/tasks', {
         templateUrl: 'views/tasks.html',

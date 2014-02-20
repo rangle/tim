@@ -5,7 +5,8 @@
 <form>
   <!-- "task_id": "33", "task": "update curl docs", "description":  -->
   Task id: {{task.task_id}}<br>
-  Task: {{task.task}}<br>
-  Description: {{task.description}}<br>
-  Time: {{task.time}}<br>
+  Task: <input ng-model="task.task"><br>
+  Description: <input ng-model="task.description"><br>
+  Time: <input ng-model="task.time"><br>
+  <button ng-click="save()">Save<button>
 </form>
